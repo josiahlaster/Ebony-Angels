@@ -114,11 +114,17 @@ export default function Navbar() {
             >
               <Link
                 to="/membership"
-                className={`relative font-medium transition-colors duration-300 ${
-                  location.pathname === '/membership'
-                    ? 'text-gold'
-                    : 'text-white/80 hover:text-gold'
-                }`}
+                 initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.8 }}
+              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(212, 175, 55, 0.5)' }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2.5 bg-gradient-gold text-black font-semibold rounded-full transition-all duration-300 cursor-pointer"
+                //className={`relative font-medium transition-colors duration-300 ${
+               //   location.pathname === '/membership'
+              //      ? 'text-gold'
+               //     : 'text-white/80 hover:text-gold'
+               // }`}
               >
                 Membership
                 <motion.span
@@ -128,7 +134,7 @@ export default function Navbar() {
                 />
               </Link>
             </motion.div>
-            <motion.a
+     {/*        <motion.a
               href="#reserve"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -139,7 +145,7 @@ export default function Navbar() {
               onClick={(e) => handleNavClick(e, 'reserve')}
             >
               Reserve Now
-            </motion.a>
+            </motion.a> */}
           </div>
 
           {/* Mobile Menu Button */}

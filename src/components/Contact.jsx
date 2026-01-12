@@ -55,8 +55,8 @@ export default function Contact() {
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6"
             style={{ fontFamily: 'var(--font-family-display)' }}>
-            <span className="text-white">Reserve Your </span>
-            <span className="text-gradient">Spot</span>
+            <span className="text-white">Contact </span>
+            <span className="text-gradient">US</span>
           </h2>
           <motion.div
             initial={{ width: 0 }}
@@ -94,7 +94,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-white/50">Email</p>
-                  <p>info@ebonyangels.com</p>
+                  <p>ebonyangels1984@gmail.com</p>
                 </div>
               </motion.a>
 
@@ -157,7 +157,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="p-8 rounded-2xl glass-effect border border-gold/20">
               <h3 className="text-2xl font-bold text-white mb-6"
               style={{ fontFamily: 'var(--font-family-display)' }}>
-                Reservation Form
+                Contact Form
               </h3>
 
               <div className="space-y-4">
@@ -221,7 +221,7 @@ export default function Contact() {
                   whileTap={{ scale: 0.98 }}
                   className="w-full py-4 bg-gradient-gold text-black font-bold text-lg rounded-full transition-all duration-300 glow-gold mt-4"
                 >
-                  Submit Reservation
+                  Submit
                 </motion.button>
               </div>
             </form>
