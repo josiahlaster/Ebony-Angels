@@ -119,7 +119,7 @@ export default function Footer() {
             whileInView={{ opacity: 1 }}
             className="text-white/40 text-sm flex items-center gap-2"
           >
-            © 2024 Ebony Angels. Made with <FaHeart className="text-crimson" /> for sisterhood.
+            © 2026 Ebony Angels. Made with <FaHeart className="text-crimson" /> for sisterhood.
           </motion.p>
 
           {/* Back to Top */}

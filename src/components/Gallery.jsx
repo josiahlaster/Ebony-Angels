@@ -3,23 +3,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 
 // Import images from menus folder
-import dessertMenu from '../assets/menus/EA_ORO_Dessert Menu.jpg';
-import dinnerMenu from '../assets/menus/EA_ORO_Dinner Menu.jpg';
-import signatureCocktail from '../assets/menus/EA_ORO_Signature Cocktail.jpg';
-import specialityDrinks from '../assets/menus/EA_ORO_Speciality Drinks.jpg';
+import dessertMenu from '../assets/menus/EA_ORO_Dessert_Menu.jpg';
+import dinnerMenu from '../assets/menus/EA_ORO_Dinner_Menu.jpg';
+import signatureCocktail from '../assets/menus/EA_ORO_Signature_Cocktail.jpg';
+import specialityDrinks from '../assets/menus/EA_ORO_Speciality_Drinks.jpg';
 
 // Import images from air folder
-import southernThingMenu from '../assets/air/Ebony Angels_Its A Southern Thing Menu.png';
-import saunaHouse from '../assets/air/Ebony Angels_Sauna House Durham.png';
-import angierHouse from '../assets/air/Ebony Angels_The Angier House_AirBNB.png';
-import womensEmpowerment from "../assets/air/Ebony Angels_Women's Empowerment.png";
-import zincHouseFlyer from '../assets/air/Ebony Angels_ZincHouse Flyer.png';
-import full1 from '../assets/air/full (1).jfif';
+import southernThingMenu from '../assets/air/Ebony_Angels_Its_A_Southern_Thing_Menu.png';
+import saunaHouse from '../assets/air/Ebony_Angels_Sauna_House_Durham.png';
+import angierHouse from '../assets/air/Ebony_Angels_The_Angier_House_AirBNB.png';
+import womensEmpowerment from '../assets/air/Ebony_Angels_Womens_Empowerment.png';
+import zincHouseFlyer from '../assets/air/Ebony_Angels_ZincHouse_Flyer.png';
+import full1 from '../assets/air/full_1.jfif';
 import full from '../assets/air/full.jfif';
 import image5 from '../assets/air/image-5.jpeg';
-import medium1 from '../assets/air/medium (1).jfif';
-import medium2 from '../assets/air/medium (2).jfif';
-import medium3 from '../assets/air/medium (3).jfif';
+import medium1 from '../assets/air/medium_1.jfif';
+import medium2 from '../assets/air/medium_2.jfif';
+import medium3 from '../assets/air/medium_3.jfif';
 import medium from '../assets/air/medium.jfif';
 import returnLegends from '../assets/air/Return_of_the_Legends.png';
 import zincOutdoor from '../assets/air/zinchouse-summer-outdoor-9.jpg';
