@@ -1,21 +1,22 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import logo from '../assets/logo.png';
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Events', href: '#events' },
-  { name: 'Venues', href: '#venues' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', id: 'home' },
+  { name: 'About', id: 'about' },
+  { name: 'Events', id: 'events' },
+  { name: 'Venues', id: 'venues' },
+  { name: 'Contact', id: 'contact' },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === '/' || location.pathname === '';
 
   useEffect(() => {
@@ -26,11 +27,27 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (href) => {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
     setIsMobileMenuOpen(false);
-    if (!isHomePage) {
+    
+    if (isHomePage) {
+      // If on home page, just scroll to section
+      scrollToSection(id);
+    } else {
       // If not on home page, navigate to home first, then scroll
-      window.location.href = `/#${href.substring(1)}`;
+      navigate('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        scrollToSection(id);
+      }, 100);
     }
   };
 
@@ -73,13 +90,13 @@ export default function Navbar() {
             {navLinks.map((link, index) => (
               <motion.a
                 key={link.name}
-                href={isHomePage ? link.href : `/#${link.href.substring(1)}`}
+                href={`#${link.id}`}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.3 }}
-                className="relative text-white/80 hover:text-gold transition-colors duration-300 font-medium"
+                className="relative text-white/80 hover:text-gold transition-colors duration-300 font-medium cursor-pointer"
                 whileHover={{ y: -2 }}
-                onClick={() => handleNavClick(link.href)}
+                onClick={(e) => handleNavClick(e, link.id)}
               >
                 {link.name}
                 <motion.span
@@ -112,13 +129,14 @@ export default function Navbar() {
               </Link>
             </motion.div>
             <motion.a
-              href={isHomePage ? '#reserve' : '/#reserve'}
+              href="#reserve"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8 }}
               whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(212, 175, 55, 0.5)' }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2.5 bg-gradient-gold text-black font-semibold rounded-full transition-all duration-300"
+              className="px-6 py-2.5 bg-gradient-gold text-black font-semibold rounded-full transition-all duration-300 cursor-pointer"
+              onClick={(e) => handleNavClick(e, 'reserve')}
             >
               Reserve Now
             </motion.a>
@@ -149,12 +167,12 @@ export default function Navbar() {
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
-                  href={isHomePage ? link.href : `/#${link.href.substring(1)}`}
+                  href={`#${link.id}`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  onClick={() => handleNavClick(link.href)}
-                  className="block text-lg text-white/80 hover:text-gold transition-colors py-2"
+                  onClick={(e) => handleNavClick(e, link.id)}
+                  className="block text-lg text-white/80 hover:text-gold transition-colors py-2 cursor-pointer"
                 >
                   {link.name}
                 </motion.a>
@@ -177,12 +195,12 @@ export default function Navbar() {
                 </Link>
               </motion.div>
               <motion.a
-                href={isHomePage ? '#reserve' : '/#reserve'}
+                href="#reserve"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block w-full text-center px-6 py-3 bg-gradient-gold text-black font-semibold rounded-full mt-4"
+                onClick={(e) => handleNavClick(e, 'reserve')}
+                className="block w-full text-center px-6 py-3 bg-gradient-gold text-black font-semibold rounded-full mt-4 cursor-pointer"
               >
                 Reserve Now
               </motion.a>
