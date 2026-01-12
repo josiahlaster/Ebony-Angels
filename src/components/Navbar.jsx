@@ -191,16 +191,20 @@ export default function Navbar() {
                 <Link
                   to="/membership"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block text-lg py-2 transition-colors ${
+                                  initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+                                className="block w-full text-center px-6 py-3 bg-gradient-gold text-black font-semibold rounded-full mt-4 cursor-pointer"
+                /*   className={`block text-lg py-2 transition-colors ${
                     location.pathname === '/membership'
                       ? 'text-gold'
                       : 'text-white/80 hover:text-gold'
-                  }`}
+                  }`} */
                 >
                   Membership
                 </Link>
               </motion.div>
-              <motion.a
+{/*               <motion.a
                 href="#reserve"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -209,7 +213,7 @@ export default function Navbar() {
                 className="block w-full text-center px-6 py-3 bg-gradient-gold text-black font-semibold rounded-full mt-4 cursor-pointer"
               >
                 Reserve Now
-              </motion.a>
+              </motion.a> */}
             </div>
           </motion.div>
         )}
