@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import logo from '../assets/logo.png';
 
@@ -14,6 +15,8 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/' || location.pathname === '';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +25,14 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleNavClick = (href) => {
+    setIsMobileMenuOpen(false);
+    if (!isHomePage) {
+      // If not on home page, navigate to home first, then scroll
+      window.location.href = `/#${href.substring(1)}`;
+    }
+  };
 
   return (
     <motion.nav
@@ -37,34 +48,38 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.a
-            href="#home"
-            className="flex items-center space-x-3"
+          <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <img 
-              src={logo} 
-              alt="Ebony Angels Logo" 
-              className="h-12 md:h-14 w-auto object-contain"
-            />
-            <span className="text-xl md:text-2xl font-bold text-gradient"
-              style={{ fontFamily: 'var(--font-family-display)' }}>
-              Ebony Angels
-            </span>
-          </motion.a>
+            <Link
+              to="/"
+              className="flex items-center space-x-3"
+            >
+              <img 
+                src={logo} 
+                alt="Ebony Angels Logo" 
+                className="h-12 md:h-14 w-auto object-contain"
+              />
+              <span className="text-xl md:text-2xl font-bold text-gradient"
+                style={{ fontFamily: 'var(--font-family-display)' }}>
+                Ebony Angels
+              </span>
+            </Link>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link, index) => (
               <motion.a
                 key={link.name}
-                href={link.href}
+                href={isHomePage ? link.href : `/#${link.href.substring(1)}`}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.3 }}
                 className="relative text-white/80 hover:text-gold transition-colors duration-300 font-medium"
                 whileHover={{ y: -2 }}
+                onClick={() => handleNavClick(link.href)}
               >
                 {link.name}
                 <motion.span
@@ -74,8 +89,30 @@ export default function Navbar() {
                 />
               </motion.a>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              whileHover={{ y: -2 }}
+            >
+              <Link
+                to="/membership"
+                className={`relative font-medium transition-colors duration-300 ${
+                  location.pathname === '/membership'
+                    ? 'text-gold'
+                    : 'text-white/80 hover:text-gold'
+                }`}
+              >
+                Membership
+                <motion.span
+                  className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold"
+                  whileHover={{ width: '100%' }}
+                  transition={{ duration: 0.3 }}
+                />
+              </Link>
+            </motion.div>
             <motion.a
-              href="#reserve"
+              href={isHomePage ? '#reserve' : '/#reserve'}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8 }}
@@ -112,21 +149,38 @@ export default function Navbar() {
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
-                  href={link.href}
+                  href={isHomePage ? link.href : `/#${link.href.substring(1)}`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => handleNavClick(link.href)}
                   className="block text-lg text-white/80 hover:text-gold transition-colors py-2"
                 >
                   {link.name}
                 </motion.a>
               ))}
-              <motion.a
-                href="#reserve"
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5 }}
+              >
+                <Link
+                  to="/membership"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block text-lg py-2 transition-colors ${
+                    location.pathname === '/membership'
+                      ? 'text-gold'
+                      : 'text-white/80 hover:text-gold'
+                  }`}
+                >
+                  Membership
+                </Link>
+              </motion.div>
+              <motion.a
+                href={isHomePage ? '#reserve' : '/#reserve'}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block w-full text-center px-6 py-3 bg-gradient-gold text-black font-semibold rounded-full mt-4"
               >
