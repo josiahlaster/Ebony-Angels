@@ -9,10 +9,17 @@ const schedule = [
     date: 'March 20, 2026',
     events: [
       {
-        time: '6:00 PM - 10:00 PM',
-        title: 'Welcome Dinner & Live Performance',
+        time: '6:00 PM - 8:00 PM',
+        title: 'Welcome Dinner',
         venue: 'ORO Restaurant & Lounge',
         description: 'Kick off the reunion with an elegant dinner featuring live entertainment.',
+        icon: FaMusic,
+      },
+      {
+        time: '9:00 PM - 12:00 AM',
+        title: 'Return of the Legends',
+        venue: 'Martin Marietta Center for the Performing Arts',
+        description: 'Get ready for an unforgettable night as we attend the Return of the Legends live performance. This high-energy event brings legendary artists back to the stage for an incredible evening of music, nostalgia, and nonstop vibes. It’s the perfect night out to dance, sing along, and create memories together.',
         icon: FaMusic,
       },
     ],
@@ -22,26 +29,20 @@ const schedule = [
     date: 'March 21, 2026',
     events: [
       {
-        time: '10:00 AM - 12:00 PM',
-        title: 'Empowerment Brunch',
+        time: '1:00 PM - 5:00 PM',
+        title: 'Womens Empowerment',
         venue: 'Lenovo Center',
-        description: 'An inspiring morning of connection and empowerment.',
+        description: 'An inspiring evening of connection and empowerment.',
         icon: FaUtensils,
       },
       {
-        time: '2:00 PM - 5:00 PM',
-        title: 'Spa & Relaxation Session',
-        venue: 'Sauna House Durham',
-        description: 'Unwind and rejuvenate with a luxurious spa experience.',
-        icon: FaSpa,
+        time: '5:00 PM - 10:00 PM',
+        title: 'R&B Lovers Tour',
+        venue: 'Lenovo Center',
+        description: 'Where smooth R&B hits, romantic melodies, and unforgettable performances create the perfect atmosphere to relax, sing along, and enjoy an amazing night together.',
+        icon: FaUtensils,
       },
-      {
-        time: '7:00 PM - 11:00 PM',
-        title: 'Gala Night',
-        venue: 'Ellis Station',
-        description: 'The main event - dress to impress for an unforgettable evening.',
-        icon: FaMusic,
-      },
+
     ],
   },
   {
@@ -49,10 +50,24 @@ const schedule = [
     date: 'March 22, 2026',
     events: [
       {
-        time: '11:00 AM - 2:00 PM',
-        title: 'Farewell Brunch & Winery Tour',
+        time: '9:00 AM - 10:30 AM',
+        title: 'Spa & Relaxation Session',
+        venue: 'Sauna House Durham',
+        description: 'We’ll take time to slow down and truly enjoy one another’s company at It’s A Southern Thing Brunch at Ellis Station. This experience blends classic Southern flavors with a warm, welcoming atmosphere that invites conversation, laughter and connection. It’s the perfect setting to relax, reflect on shared memories, and enjoy a delicious meal together while soaking in the comfort, culture and charm that make Southern hospitality so special. More than just brunch, this moment is about togetherness, meaningful conversations and creating lasting memories in a space that feels inviting and celebratory.',
+        icon: FaSpa,
+      },
+      {
+        time: '11:00 AM - 12:30 PM',
+        title: 'Its A Southern Thing',
+        venue: 'Ellis Station',
+        description: 'The main event - dress to impress for an unforgettable evening.',
+        icon: FaMusic,
+      },
+      {
+        time: '3:00 PM - 7:00 PM',
+        title: 'Farewell Brunch',
         venue: 'ZincHouse Winery & Brewery',
-        description: 'Toast to sisterhood with wine tasting and a memorable farewell.',
+        description: 'We’ll conclude our reunion with a relaxing and memorable visit to ZincHouse Winery & Brewery, serving as the perfect finale to our time together. This beautiful setting offers a chance to unwind, reflect, and savor the moments we’ve shared throughout the trip. With handcrafted wines, brewed selections, and food trucks for dining. A welcoming atmosphere at the ZincHouse creates an ideal space for laughter, heartfelt conversations and one last opportunity to celebrate sisterhood as we bring the reunion to a close.',
         icon: FaWineGlass,
       },
     ],

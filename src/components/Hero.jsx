@@ -199,7 +199,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <motion.a
-            href="#reserve"
+            href="#membership"
             whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(212, 175, 55, 0.5)' }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-gradient-gold text-black font-bold text-lg rounded-full transition-all duration-300 glow-gold"

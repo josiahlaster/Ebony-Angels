@@ -33,6 +33,7 @@ import zincGlasses from '../assets/air/zinchouse-winery-glasses-1.jpg';
 const galleryImages = [
   { src: womensEmpowerment, alt: "Women's Empowerment" },
   { src: returnLegends, alt: 'Return of the Legends' },
+  { src: angierHouse, alt: 'The Angier House AirBNB' },
   { src: full1, alt: 'Ebony Angels Gathering' },
   { src: full, alt: 'Ebony Angels Sisters' },
   { src: image5, alt: 'Sisterhood Moments' },
@@ -42,7 +43,6 @@ const galleryImages = [
   { src: medium, alt: 'Memories' },
   { src: southernThingMenu, alt: 'Its A Southern Thing Menu' },
   { src: saunaHouse, alt: 'Sauna House Durham' },
-  { src: angierHouse, alt: 'The Angier House AirBNB' },
   { src: zincHouseFlyer, alt: 'ZincHouse Flyer' },
   { src: dessertMenu, alt: 'ORO Dessert Menu' },
   { src: dinnerMenu, alt: 'ORO Dinner Menu' },

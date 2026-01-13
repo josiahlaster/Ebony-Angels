@@ -99,7 +99,7 @@ export default function Contact() {
               </motion.a>
 
               <motion.a
-                href="tel:+19195551234"
+                href="tel:+19194383030"
                 whileHover={{ x: 10, color: '#D4AF37' }}
                 className="flex items-center gap-4 text-white/80 transition-colors"
               >
@@ -108,7 +108,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-white/50">Phone</p>
-                  <p>(919) 555-1234</p>
+                  <p>(919) 438-3030</p>
                 </div>
               </motion.a>
 
